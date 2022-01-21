@@ -55,40 +55,60 @@ class SingleProductScreen extends StatelessWidget {
             Row(
               children: [
                 Text(
-                  "Rs. ${product?.price.toStringAsFixed(2)}",
+                  "${product?.price.toStringAsFixed(2)} \$",
                   style: TextStyle(color: Colors.black87, fontSize: 30),
                 ),
                 Spacer(),
                 Container(
-                    child: Row(
-                  children: [
-                    IconButton(
-                        iconSize: 30,
-                        icon: Icon(
-                          Icons.remove,
-                          color: Colors.black,
-                        ),
-                        onPressed: () => {store.removeItemFromCart(product!)}),
-                    Text(
-                      product!.quantity.toString(),
-                      style: TextStyle(
-                        fontSize: 20,
-                        color: Colors.black87,
-                      ),
+                    height: 50,
+                    width: 120,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(45.0),
+                      color: Colors.white,
+                      boxShadow: [
+                        BoxShadow(
+                            color: Colors.grey,
+                            blurRadius: 3.0,
+                            offset: Offset(1.0, 1.0))
+                      ],
                     ),
-                    IconButton(
-                        iconSize: 30,
-                        icon: Icon(
-                          Icons.add,
-                          color: Colors.black,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        IconButton(
+                            focusColor: Colors.transparent,
+                            splashColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            iconSize: 30,
+                            icon: Icon(
+                              Icons.remove,
+                              color: Colors.black,
+                            ),
+                            onPressed: () =>
+                                {store.removeItemFromCart(product!)}),
+                        Text(
+                          product!.quantity.toString(),
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.black87,
+                          ),
                         ),
-                        onPressed: () => {store.addItemToCart(product)}),
-                  ],
-                ))
+                        IconButton(
+                            focusColor: Colors.transparent,
+                            splashColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            iconSize: 30,
+                            icon: Icon(
+                              Icons.add,
+                              color: Colors.black,
+                            ),
+                            onPressed: () => {store.addItemToCart(product)}),
+                      ],
+                    ))
               ],
             ),
             SizedBox(
-              height: 10,
+              height: 15,
             ),
             Text(
               product.description,

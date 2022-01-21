@@ -46,22 +46,22 @@ class ProductListScreen extends StatelessWidget {
       body: ListView(
         children: [
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 25),
+            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text("Recommended Food",
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
-                        fontSize: 23,
+                        fontSize: 20,
                         color: Colors.black87)),
-                FlatButton(
+                TextButton(
                     onPressed: () => {},
-                    child: Text("View All",
+                    child: Text("All",
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 15,
-                            color: Colors.green))),
+                            color: Colors.greenAccent[400]))),
               ],
             ),
           ),

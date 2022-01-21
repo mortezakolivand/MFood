@@ -34,6 +34,46 @@ class ProductListItem extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                Container(
+                  height: 20,
+                  width: 75,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10.0),
+                    color: Colors.red[500],
+                    boxShadow: [
+                      BoxShadow(
+                          color: Colors.grey,
+                          blurRadius: 3.0,
+                          offset: Offset(1.0, 1.0))
+                    ],
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.fromLTRB(5, 3, 0, 3),
+                    child: Row(
+                      children: [
+                        Icon(
+                          Icons.star,
+                          color: Colors.white,
+                          size: 13,
+                        ),
+                        SizedBox(
+                          width: 5,
+                        ),
+                        Text(
+                          "Popular",
+                          style: TextStyle(
+                            fontSize: 13,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 7,
+                ),
                 Text(
                   "${product.name}",
                   style: TextStyle(
@@ -42,7 +82,7 @@ class ProductListItem extends StatelessWidget {
                       color: Colors.black54),
                 ),
                 Text(
-                  "Rs. ${product.price.toStringAsFixed(2)}",
+                  "${product.price.toStringAsFixed(2)} \$",
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
@@ -56,11 +96,11 @@ class ProductListItem extends StatelessWidget {
             width: 50,
             height: 50,
             decoration: BoxDecoration(
-                color: Colors.blue[200],
+                color: Colors.greenAccent[400],
                 borderRadius: BorderRadius.circular(10)),
             child: IconButton(
               icon: Icon(
-                Icons.add_shopping_cart,
+                Icons.add_shopping_cart_sharp,
                 color: Colors.white,
               ),
               onPressed: () => {store.addItemToCart(product)},
