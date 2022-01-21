@@ -10,20 +10,32 @@ class ProductListScreen extends StatelessWidget {
     var store = Provider.of<Store>(context);
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          "M Food",
-          style: TextStyle(color: Colors.black45),
+        leading: IconButton(
+          icon: Icon(
+            Icons.person,
+            color: Colors.black45,
+          ),
+          onPressed: () => Navigator.pushNamed(context, '/profile'),
+        ),
+        title: Center(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image(
+                image: AssetImage("assets/images/m.png"),
+                width: 60,
+                height: 55,
+              ),
+              Text(
+                "Food",
+                style: TextStyle(color: Colors.black45),
+              ),
+            ],
+          ),
         ),
         backgroundColor: Colors.transparent,
         elevation: 0,
         actions: [
-          IconButton(
-            icon: Icon(
-              Icons.person,
-              color: Colors.black45,
-            ),
-            onPressed: () => Navigator.pushNamed(context, '/profile'),
-          ),
           Badge(
             showBadge: store.getCartQuantity() > 0,
             position: BadgePosition(top: 0, end: 2),
